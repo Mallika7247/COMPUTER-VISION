@@ -1,0 +1,22 @@
+import cv2
+
+# Read the image
+img = cv2.imread('your_image.jpg')
+
+# Define rectangle coordinates (top-left corner x,y and width, height)
+x, y, w, h = 100, 50, 200, 150
+
+# Draw rectangle on the image (color blue, thickness 2)
+cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+
+# Extract (crop) the object inside the rectangle
+cropped_obj = img[y:y+h, x:x+w]
+
+# Show original image with rectangle
+cv2.imshow('Image with Rectangle', img)
+
+# Show the cropped object
+cv2.imshow('Cropped Object', cropped_obj)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
